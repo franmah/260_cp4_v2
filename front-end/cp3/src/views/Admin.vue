@@ -168,7 +168,6 @@ export default {
   methods: {
     async editUniversity() {
       try {
-        console.log("edit")
         await axios.put('/api/university', { university: this.universityToEdit });
         this.universityToEdit = {
           id: "",
@@ -179,10 +178,8 @@ export default {
         };
         this.universityNameSearch = "";
         await this.getUniversities();
-        console.log("done")
-
       } catch (error) {
-        console.log(error);
+        JSON.stringify(error);;
       }
     },
     async deleteUniversity() {
@@ -198,7 +195,7 @@ export default {
         }
         this.universityNameSearch = "";
       } catch (error) {
-        console.log(error);
+        JSON.stringify(error);;
       }
     },
     async deleteCourse() {
@@ -215,7 +212,7 @@ export default {
           description: "",
         }
       } catch (error) {
-        console.log(error);
+        JSON.stringify(error);;
       }
     },
     async editCourse() {
@@ -236,7 +233,7 @@ export default {
         };
         this.selectedUniversityCourses = (await axios.get('/api/courses/' + this.universityToEdit.id)).data;
       } catch (error) {
-        console.log(error);
+        JSON.stringify(error);;
       }
       
     },
@@ -244,14 +241,14 @@ export default {
       try {
         this.$root.$data.universities = (await axios.get('/api/universities')).data;
       } catch (error) {
-        console.log(error);
+        JSON.stringify(error);;
       }
     },
     async getCourses() {
       try {
         this.selectedUniversityCourses = (await axios.get('/api/courses/' + this.universityToEdit.id)).data;
       } catch (error) {
-        console.log(error);
+        JSON.stringify(error);;
       }
     },
     async selectUniversityToEdit(university) {
@@ -262,7 +259,7 @@ export default {
         this.courseToEdit.universityId = this.universityToEdit.id;
         this.selectedUniversityCourses = (await axios.get('/api/courses/' + university.id)).data;
       } catch (error) {
-        console.log(error);
+        JSON.stringify(error);;
       }
     },
     selectUniversityToAddCourse(university) {
@@ -289,7 +286,7 @@ export default {
           description: "",
         };
       } catch(error) {
-        console.log(error);
+        JSON.stringify(error);;
       }
     },
     async addUniversity() {
@@ -311,7 +308,7 @@ export default {
         };
         await this.getUniversities();
       } catch (error) {
-        console.log(error.error);
+        JSON.stringify(error);
       }
     },
     async selectCourseToEdit(course) {

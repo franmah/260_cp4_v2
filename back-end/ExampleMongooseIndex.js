@@ -40,10 +40,10 @@ app.post('/api/items', async (req, res) => {
   });
   try {
     await item.save();
-    console.log(`saved: ${req.body.title}`);
+    //console.log(`saved: ${req.body.title}`);
     res.send(item);
   } catch (error) {
-    console.log(error);
+    JSON.stringify(error);;
     res.sendStatus(500);
   }
 });
@@ -55,7 +55,7 @@ app.get('/api/items', async (req, res) => {
     let items = await Item.find();
     res.send(items);
   } catch (error) {
-    console.log(error);
+    JSON.stringify(error);;
     res.sendStatus(500);
   }
 });
@@ -68,7 +68,7 @@ app.delete('/api/items/:id', async (req, res) => {
     });
     res.sendStatus(200);
   } catch (error) {
-    console.log(error);
+    JSON.stringify(error);;
     res.sendStatus(500);
   }
 });
@@ -84,11 +84,11 @@ app.put('/api/items/:id', async (req, res) => {
 
     res.sendStatus(200);
   } catch (error) {
-    console.log(error);
+    JSON.stringify(error);;
     res.sendStatus(500);
   }
 });
 
-app.listen(3000, () => console.log('Server listening on port 3000!'));
+app.listen(3000);
 
 

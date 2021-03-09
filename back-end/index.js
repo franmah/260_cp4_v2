@@ -64,7 +64,7 @@ app.get('/api/universities', async (req, res) => {
     const universities = await University.find();
     res.send(universities);
   } catch (error) {
-    console.log(error);
+    JSON.stringify(error);;
   }
 });
 
@@ -89,7 +89,7 @@ app.post('/api/university', async (req, res) => {
     await university.save();
     res.status(200).send(university);
   } catch (err) {
-    console.log(`err: ` + err);
+    //console.log(`err: ` + err);
     res.status(400).send({ error: err });
   }
 });
@@ -100,7 +100,7 @@ app.delete('/api/university/:id', async (req, res) => {
     await University.deleteOne({ id: id });
     res.status(200).end();
   } catch (err) {
-    console.log(err);
+    //console.log(err);
     res.status(400).send(err);
   }
 });
@@ -120,7 +120,7 @@ app.put('/api/university', async (req, res) => {
     });
     res.sendStatus(200);
   } catch (error) {
-    console.log(error);
+    JSON.stringify(error);;
     res.status(400).send(error);
   }
 });
@@ -132,7 +132,7 @@ app.get('/api/courses/:university_id', async (req, res) => {
     const courses = await Course.find({ universityId: universityId });
     res.status(200).send(courses);
   } catch (error) {
-    console.log(error);
+    JSON.stringify(error);;
     res.status(400).send(error);
   }
 });
@@ -146,7 +146,7 @@ app.get('/api/course/:course_id', async (req, res) => {
       throw Error('No course found');
     res.status(200).send(course);
   } catch (error) {
-    console.log(error);
+    JSON.stringify(error);;
     res.status(400).send(error);
   }
 })
@@ -184,7 +184,7 @@ app.post('/api/course', async (req, res) => {
     await course.save();
     res.sendStatus(200);
   } catch (error) {
-    console.log(error);
+    JSON.stringify(error);;
     res.status(400).send(error);
   }
 });
@@ -213,7 +213,7 @@ app.put('/api/course/', async (req, res) => {
     });
     res.sendStatus(200);
   } catch (error) {
-    console.log(error);
+    JSON.stringify(error);;
     res.status(400).send(error);
   }
 })
@@ -224,7 +224,7 @@ app.delete('/api/course/:id', async (req, res) => {
     await Course.deleteOne({ id: id });
     res.status(200).end();
   } catch (err) {
-    console.log(err);
+    //console.log(err);
     res.status(400).send(err);
   }
 });
@@ -235,7 +235,7 @@ app.delete('/api/comment/:id', async (req, res) => {
     await Comment.deleteOne({ id: id });
     res.sendStatus(200);
   } catch (error) {
-    console.log(error);
+    JSON.stringify(error);;
     res.status(400).send(error);
   }
 });
@@ -266,7 +266,7 @@ app.post('/api/comment', async (req, res) => {
     await c.save();
     res.status(200).send(c);
   } catch (error) {
-    console.log(error);
+    JSON.stringify(error);;
     res.status(400).send(error);
   }
 });

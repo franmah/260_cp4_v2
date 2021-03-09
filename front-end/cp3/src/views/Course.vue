@@ -73,7 +73,6 @@ export default {
   },
   methods: {
     showAddComment() {
-      console.log('test')
       this.shouldShowAddComment = !this.shouldShowAddComment;
       this.showAddCommentText = this.shouldShowAddComment ? 'Hide' : 'Add comment';
     },
@@ -84,7 +83,7 @@ export default {
         this.course = (await axios.get('/api/course/' + courseId)).data;
         this.comments = (await axios.get('/api/comments/' + courseId)).data;
       } catch (error) {
-        console.log(error);
+        JSON.stringify(error);;
       }
     },
     async addComment() {
@@ -105,7 +104,6 @@ export default {
             courseId: this.course.id,
           }
         });
-        console.log(JSON.stringify(response.data))
         this.comments.push(response.data);
 
         this.author = '';
@@ -113,16 +111,15 @@ export default {
         this.rating = '';
         this.content = '';
       } catch (error) {
-        console.log(error);
+        JSON.stringify(error);;
       }
     },
     async deleteComment(commentId) {
       try {
-        console.log('delete comment' + commentId)
         await axios.delete('/api/comment/' + commentId);
         this.comments = (await axios.get('/api/comments/' + this.course.id)).data;
       } catch (error) {
-        console.log(error);
+        JSON.stringify(error);;
       }
     }
   },
