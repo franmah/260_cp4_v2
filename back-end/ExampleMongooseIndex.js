@@ -43,7 +43,7 @@ app.post('/api/items', async (req, res) => {
     //console.log(`saved: ${req.body.title}`);
     res.send(item);
   } catch (error) {
-    JSON.stringify(error);;
+    JSON.stringify(error);
     res.sendStatus(500);
   }
 });
@@ -55,7 +55,7 @@ app.get('/api/items', async (req, res) => {
     let items = await Item.find();
     res.send(items);
   } catch (error) {
-    JSON.stringify(error);;
+    JSON.stringify(error);
     res.sendStatus(500);
   }
 });
@@ -68,7 +68,7 @@ app.delete('/api/items/:id', async (req, res) => {
     });
     res.sendStatus(200);
   } catch (error) {
-    JSON.stringify(error);;
+    JSON.stringify(error);
     res.sendStatus(500);
   }
 });
@@ -84,7 +84,7 @@ app.put('/api/items/:id', async (req, res) => {
 
     res.sendStatus(200);
   } catch (error) {
-    JSON.stringify(error);;
+    JSON.stringify(error);
     res.sendStatus(500);
   }
 });

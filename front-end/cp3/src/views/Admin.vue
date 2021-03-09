@@ -179,7 +179,7 @@ export default {
         this.universityNameSearch = "";
         await this.getUniversities();
       } catch (error) {
-        JSON.stringify(error);;
+        JSON.stringify(error);
       }
     },
     async deleteUniversity() {
@@ -195,7 +195,7 @@ export default {
         }
         this.universityNameSearch = "";
       } catch (error) {
-        JSON.stringify(error);;
+        JSON.stringify(error);
       }
     },
     async deleteCourse() {
@@ -212,7 +212,7 @@ export default {
           description: "",
         }
       } catch (error) {
-        JSON.stringify(error);;
+        JSON.stringify(error);
       }
     },
     async editCourse() {
@@ -233,7 +233,7 @@ export default {
         };
         this.selectedUniversityCourses = (await axios.get('/api/courses/' + this.universityToEdit.id)).data;
       } catch (error) {
-        JSON.stringify(error);;
+        JSON.stringify(error);
       }
       
     },
@@ -241,14 +241,14 @@ export default {
       try {
         this.$root.$data.universities = (await axios.get('/api/universities')).data;
       } catch (error) {
-        JSON.stringify(error);;
+        JSON.stringify(error);
       }
     },
     async getCourses() {
       try {
         this.selectedUniversityCourses = (await axios.get('/api/courses/' + this.universityToEdit.id)).data;
       } catch (error) {
-        JSON.stringify(error);;
+        JSON.stringify(error);
       }
     },
     async selectUniversityToEdit(university) {
@@ -259,7 +259,7 @@ export default {
         this.courseToEdit.universityId = this.universityToEdit.id;
         this.selectedUniversityCourses = (await axios.get('/api/courses/' + university.id)).data;
       } catch (error) {
-        JSON.stringify(error);;
+        JSON.stringify(error);
       }
     },
     selectUniversityToAddCourse(university) {
@@ -286,7 +286,7 @@ export default {
           description: "",
         };
       } catch(error) {
-        JSON.stringify(error);;
+        JSON.stringify(error);
       }
     },
     async addUniversity() {

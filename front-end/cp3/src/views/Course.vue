@@ -83,7 +83,7 @@ export default {
         this.course = (await axios.get('/api/course/' + courseId)).data;
         this.comments = (await axios.get('/api/comments/' + courseId)).data;
       } catch (error) {
-        JSON.stringify(error);;
+        JSON.stringify(error);
       }
     },
     async addComment() {
@@ -111,7 +111,7 @@ export default {
         this.rating = '';
         this.content = '';
       } catch (error) {
-        JSON.stringify(error);;
+        JSON.stringify(error);
       }
     },
     async deleteComment(commentId) {
@@ -119,7 +119,7 @@ export default {
         await axios.delete('/api/comment/' + commentId);
         this.comments = (await axios.get('/api/comments/' + this.course.id)).data;
       } catch (error) {
-        JSON.stringify(error);;
+        JSON.stringify(error);
       }
     }
   },

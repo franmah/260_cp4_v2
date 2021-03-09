@@ -23,7 +23,7 @@ export default {
       try {
         this.$root.$data.universities = (await axios.get('/api/universities')).data;
       } catch (error) {
-        JSON.stringify(error);;
+        JSON.stringify(error);
       }
     }
   }
